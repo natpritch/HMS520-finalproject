@@ -1,0 +1,34 @@
+---
+title: "HMS 520 Final Project"
+authors: Natalie Pritchett and Betyna Berice
+date: "12/1/2022"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+# Your team member(s)
+Betyna and Natalie
+
+# The format you choose 
+Creating a package
+
+# The overall goal of the project
+Produce plots across years (x-axis) for vetting an estimate of interest that can loop through to separate out disease causes, or age groups, or countries/subnationals, or sexes (as selected by the input of the package user).
+
+# Detailed plans and timeline:
+Step 1. Make a test dataset - week one
+
+Step 2. make plotting function - week one
+
+Step 3. test plotting function on one output option - week two 
+
+Step 4. make the lists of options the user can choose to loop through (disease causes, or age groups, or countries/subnationals, or sexes) - week two
+
+Step 5. print out multiple plots in a pdf using for loop - week three
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
