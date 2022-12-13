@@ -33,33 +33,37 @@ theme_set(theme_bw(16))
 #Options for user to select
 ##########################################
 
-cause <- "cervical cancer"
-sex <- 1
-age_groups <- c(5:21)
-countries <- c("Colombia", "Costa Rica")
-years <- c(1990:2015)
-
+cause <- "cervical cancer" #select cause to include in plots
+sex <- 1 #select sexes needed for plots
+age_groups <- c(5:21) #specify which age groups to include in plots
+countries <- c("Colombia", "Costa Rica") #each country will be a page of the plot
+years <- c(1990:2015) #select years to include
 
 ###################################
 #Make dataset
 ###################################
 
-dat <- read.csv("gbd vetting plots.csv")
+dat <- read.csv("dataset/gbd vetting plots.csv")
 dat$sex <- 2
+
+##################################
+#Plotting specific variables (could be defined above or another variable in dataset
+#as appropriate for plot aesthetics)
+##################################
+x_var <- dat$year_id
+y_var <- dat$g_code
+color_var <-  dat$age_group_id
+shape_var <- dat$data_type
 
 ###################################
 ## Set up Main Functions - still original example
 ##################################
 
 #make ploting function
-plotting_fct <- function(tbl, cause='cause',
-                         sex='sex',
-                         age_group_id='age_groups',
-                         countries='countries',
-                         year_id='years'){
+plotting_fct <- function(tbl, cause='cause'){
   print(ggplot(dat) +
-        geom_point(aes(x=year_id, y=g_code, color=data_type, shape=data_type, size=age_group_id)) +
-        facet_wrap_paginate(~countries, ncol = 1, nrow = 1, scales = "free", page = i))
+          geom_point(aes(x=x_var, y=y_var, color=color_var, shape=shape_var)) +
+          facet_wrap_paginate(~countries, ncol = 1, nrow = 1, scales = "free", page = i))
 }
 
 
