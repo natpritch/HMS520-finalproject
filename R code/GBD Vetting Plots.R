@@ -29,16 +29,6 @@ library(ggforce)
 theme_set(theme_bw(16))
 
 
-##########################################
-#Options for user to select
-##########################################
-
-cause <- "cervical cancer" #select cause to include in plots
-sex <- 1 #select sexes needed for plots
-age_groups <- c(5:21) #specify which age groups to include in plots
-countries <- c("Colombia", "Costa Rica") #each country will be a page of the plot
-years <- c(1990:2015) #select years to include
-
 ###################################
 #Make dataset
 ###################################
@@ -47,13 +37,13 @@ dat <- read.csv("dataset/gbd vetting plots.csv")
 dat$sex <- 2
 
 ##################################
-#Plotting specific variables (could be defined above or another variable in dataset
-#as appropriate for plot aesthetics)
+#Options for user to select
 ##################################
 x_var <- dat$year_id
 y_var <- dat$g_code
 color_var <-  dat$age_group_id
 shape_var <- dat$data_type
+countries <- c("Colombia", "Costa Rica") #each country will be a page of the plot
 
 ###################################
 ## Set up Main Functions - still original example
