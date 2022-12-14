@@ -20,13 +20,10 @@
 ## Set up libraries
 #########################
 rm(list=ls())
-library(RColorBrewer)
-library(ggplot2)
-library(data.table)
-library(dplyr)
+library(MASS)
 library(tidyverse)
+library(writexl)
 library(ggforce)
-theme_set(theme_bw(16))
 
 
 ###################################
