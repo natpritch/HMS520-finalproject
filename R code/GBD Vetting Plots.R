@@ -81,8 +81,7 @@ countries <- c("Colombia", "Costa Rica") #each country will be a page of the plo
 #make ploting function
 plotting_fct <- function(tbl, cause='cause'){
   print(ggplot(dat) +
-          geom_point(aes(x=x_var, y=y_var, color=color_var, shape=shape_var)) +
-          facet_wrap_paginate(~countries, ncol = 1, nrow = 1, scales = "free", page = i))
+          geom_point(aes(x=x_var, y=y_var, color=color_var, shape=shape_var, size=3)))
 }
 
 
@@ -97,6 +96,7 @@ n <- length(unique(dat$country_id))
 #test printing pdf of multiple country plots using for loop
 pdf(("garbage_code_qa.pdf"), width = 20, height = 16)
 for(i in 1:n){
-  plotting_fct(tbl = dat)
+  plotting_fct(tbl = dat) +
+    facet_wrap_paginate(~countries, ncol = 1, nrow = 1, scales = "free", page = i)
 }
 dev.off()
